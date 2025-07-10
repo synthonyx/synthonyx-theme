@@ -1,0 +1,46 @@
+{{ with site.Params.Features }}
+<section id="products" class="py-20 md:py-32 bg-white dark:bg-dark-bg transition-colors duration-300">
+  <div class="container mx-auto px-6">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-4xl md:text-5xl font-black mb-4">
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary via-pink to-magenta">
+          {{ .title }}
+        </span>
+      </h2>
+      <p class="text-lg md:text-xl text-black/70 dark:text-white/60">
+        {{ .description }}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+      {{ range .items }}
+      <div class="group relative p-8 rounded-2xl border overflow-hidden transition-all duration-300
+                  bg-white dark:bg-dark-card
+                  border-gray-200 dark:border-dark-border
+                  hover:border-primary hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20">
+
+        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+        <div class="relative z-10">
+          <div class="flex items-center justify-center w-28 h-28 mb-6 rounded-lg bg-gradient-to-br from-primary to-pink text-white shadow-lg mx-auto">
+            <i data-lucide="{{ .icon }}" class="w-20 h-20"></i>
+          </div>
+
+          <h3 class="text-2xl font-bold dark:text-white mb-5">
+            {{ .title }}
+          </h3>
+          <p class="text-black/70 dark:text-white/60 mb-4">
+            {{ .description }}
+          </p>
+
+          <a href="{{ .linkURL }}" class="font-bold text-pink hover:text-magenta transition-colors group-hover:text-magenta">
+            {{ .linkText }}
+            <span class="inline-block transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+          </a>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

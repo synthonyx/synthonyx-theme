@@ -1,0 +1,50 @@
+{{/*  <p>Copyright {{ now.Year }}. All rights reserved.</p>  */}}
+
+<div class="container mx-auto px-6 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+        <div class="md:col-span-5 lg:col-span-6">
+            <a href="{{ site.BaseURL }}" class="flex items-center gap-3 mb-4">
+                    <img src="{{ site.Params.logo }}" alt="Synthonyx Logo" class="h-10 w-auto" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-pink items-center justify-center hidden">
+                    <span class="text-2xl font-black text-white">Σ</span>
+                </div>
+                <span class="text-2xl font-black text-white uppercase tracking-wider">{{ site.Params.Footer.title }}</span>
+            </a>
+            <p class="text-white/60 max-w-sm">{{ site.Params.description }}</p>
+        </div>
+
+        <div class="md:col-span-3 lg:col-span-2"></div>
+
+        <div class="md:col-span-4 lg:col-span-2">
+            <h4 class="font-bold text-pink uppercase tracking-widest text-sm mb-4">Quick links</h4>
+            <ul class="space-y-2">
+                {{ range site.Menus.footer }}
+                <li><a href="{{ .URL }}" class="text-white/60 hover:text-white transition-colors">{{ .Name }}</a></li>
+                {{ end }}
+                {{/*  <li><a href="#" class="text-white/60 hover:text-white transition-colors">Terms</a></li>
+                <li><a href="#" class="text-white/60 hover:text-white transition-colors">Privacy</a></li>  */}}
+            </ul>
+        </div>
+
+        {{ with site.Params.Socials }}    
+        <div class="md:col-span-12 lg:col-span-2">
+            <h4 class="font-bold text-pink uppercase tracking-widest text-sm mb-4">Connect</h4>
+            <div class="flex flex-wrap gap-3">
+                {{ range .items }}
+                <a href="{{ .url }}" aria-label="{{ .name }}" class="w-10 h-10 rounded-lg bg-white/5 hover:bg-white/10 text-white/60 hover:text-white flex items-center justify-center transition-all duration-300 hover:-translate-y-1">
+                    {{ if .icon }}<i class="{{ .icon }}"></i>{{ else }}<img src="{{ .img }}" alt="{{ .name }} logo" width="28" height="28">{{ end }}
+                </a>
+                {{ end }}                
+            </div>
+        </div>
+        {{ end }}
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-white/10 text-center text-white/40">
+        <p>&copy; {{ now.Year }} {{ .Site.Title }}. All rights reserved.</p>
+        {{ with .Site.Params.Footer.greeting | safeHTML }}
+        <p class="text-sm mt-2">{{ . }}</p>
+        {{ end }}
+        <p class="text-sm mt-2">{{ .Site.Params.heroHeader }} {{ .Site.Params.heroSubheader }}</p>
+    </div>
+</div>

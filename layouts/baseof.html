@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}" class="{{ if eq (getenv "HUGO_ENV") "production" }}dark{{ end }}">
+<head>
+  {{ partial "head.html" . }}
+</head>
+
+<body class="bg-light-bg text-text-light dark:bg-dark-bg dark:text-text-dark font-sans antialiased overflow-x-hidden transition-colors duration-300">
+  <!-- Container for the entire page -->
+  <div id="app-container" class="min-h-screen flex flex-col">
+    <!-- Header -->
+    <header id="main-header" class="sticky top-0 z-50 w-full bg-primary/80 dark:bg-dark-bg/80 backdrop-blur-lg border-b border-light-border dark:border-white/10 transition-all duration-300">
+      {{ partial "header.html" . }}      
+    </header>  
+
+    <!-- Main Content -->
+    <main>
+      {{ block "main" . }}{{ end }}
+    </main>
+
+    <!-- Footer -->
+    <footer id="main-footer" class="bg-gray bg-dark-bg border-t border-light-border dark:border-white/10">
+      {{ partial "footer.html" . }}
+    </footer>
+  </div>
+
+  <!-- Mobile Menu Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleBtn = document.getElementById('mobileMenuToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+      if (toggleBtn && mobileMenu) {
+        toggleBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+          const icon = toggleBtn.querySelector('i');
+          icon.setAttribute('data-lucide', mobileMenu.classList.contains('hidden') ? 'menu' : 'x');
+          lucide.createIcons();
+        });
+      }
+    });
+  </script>
+</body>
+</html>
