@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "Synthonyx Technologies Hugo theme",
   "scripts": {
-    "dev": "hugo server -D",
-    "build:css": "tailwindcss -i themes/synthonyx-theme/assets/css/tailwind.css -o themes/synthonyx-theme/static/css/main.css --minify",
-    "watch:css": "tailwindcss -i themes/synthonyx-theme/assets/css/tailwind.css -o themes/synthonyx-theme/static/css/main.css --watch",
-    "build": "hugo --minify"
+    "dev": "hugo server --source exampleSite --themesDir ../..",
+    "build:css": "tailwindcss -i ./assets/css/tailwind.css -o ./static/css/main.css --minify",
+    "watch:css": "tailwindcss -i ./assets/css/tailwind.css -o ./static/css/main.css --watch",
+    "build": "hugo --source exampleSite --themesDir ../.. --minify"
   },
   "devDependencies": {
     "tailwindcss": "^4.1.11",

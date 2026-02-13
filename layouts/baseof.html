@@ -1,39 +1,57 @@
 <!DOCTYPE html>
-<html lang="{{ site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}" class="{{ if eq (getenv "HUGO_ENV") "production" }}dark{{ end }}">
+<html lang="{{ site.Language.LanguageCode }}" 
+      dir="{{ or site.Language.LanguageDirection `ltr` }}" 
+      class="dark">
 <head>
   {{ partial "head.html" . }}
 </head>
 
-<body class="bg-light-bg text-text-light dark:bg-dark-bg dark:text-text-dark font-sans antialiased overflow-x-hidden transition-colors duration-300">
-  <!-- Container for the entire page -->
-  <div id="app-container" class="min-h-screen flex flex-col">
-    <!-- Header -->
-    <header id="main-header" class="sticky top-0 z-50 w-full bg-primary/80 dark:bg-dark-bg/80 backdrop-blur-lg border-b border-light-border dark:border-white/10 transition-all duration-300">
-      {{ partial "header.html" . }}      
-    </header>  
+{{/* 
+  VISIBLE ENGINEERING / BLUEPRINT LAYOUT
+  - 24px graph paper grid background
+  - Hard borders between all sections
+  - Enterprise infrastructure aesthetic
+*/}}
+<body class="bg-dark-bg text-gray-300 font-sans antialiased min-h-screen flex flex-col
+             bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] 
+             bg-[size:24px_24px]">
+  
+  {{/* Fixed Header - Hard Grid Border */}}
+  <header class="h-20 border-b border-white/20 flex items-center fixed w-full top-0 bg-dark-bg/95 backdrop-blur-sm z-50">
+    {{ partial "header.html" . }}
+  </header>
 
-    <!-- Main Content -->
-    <main>
-      {{ block "main" . }}{{ end }}
-    </main>
+  {{/* Main Content - Full Width, No Container Constraints */}}
+  <main class="flex-grow pt-20">
+    {{ block "main" . }}{{ end }}
+  </main>
 
-    <!-- Footer -->
-    <footer id="main-footer" class="bg-gray bg-dark-bg border-t border-light-border dark:border-white/10">
-      {{ partial "footer.html" . }}
-    </footer>
-  </div>
+  {{/* Footer - Data Block with Visible Dividers */}}
+  <footer class="border-t border-white/20 bg-dark-bg/80">
+    {{ partial "footer.html" . }}
+  </footer>
 
-  <!-- Mobile Menu Script -->
+  {{/* Scripts */}}
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      // Initialize Lucide icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      // Mobile menu toggle
       const toggleBtn = document.getElementById('mobileMenuToggle');
       const mobileMenu = document.getElementById('mobileMenu');
+      
       if (toggleBtn && mobileMenu) {
         toggleBtn.addEventListener('click', () => {
           mobileMenu.classList.toggle('hidden');
           const icon = toggleBtn.querySelector('i');
-          icon.setAttribute('data-lucide', mobileMenu.classList.contains('hidden') ? 'menu' : 'x');
-          lucide.createIcons();
+          if (icon) {
+            const isOpen = !mobileMenu.classList.contains('hidden');
+            icon.setAttribute('data-lucide', isOpen ? 'x' : 'menu');
+            lucide.createIcons();
+          }
         });
       }
     });

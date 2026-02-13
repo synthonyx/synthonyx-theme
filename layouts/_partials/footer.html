@@ -1,50 +1,102 @@
-{{/*  <p>Copyright {{ now.Year }}. All rights reserved.</p>  */}}
-
-<div class="container mx-auto px-6 py-12">
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
-        <div class="md:col-span-5 lg:col-span-6">
-            <a href="{{ site.BaseURL }}" class="flex items-center gap-3 mb-4">
-                    <img src="{{ site.Params.logo }}" alt="Synthonyx Logo" class="h-10 w-auto" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-pink items-center justify-center hidden">
-                    <span class="text-2xl font-black text-white">Σ</span>
-                </div>
-                <span class="text-2xl font-black text-white uppercase tracking-wider">{{ site.Params.Footer.title }}</span>
-            </a>
-            <p class="text-white/60 max-w-sm">{{ site.Params.description }}</p>
-        </div>
-
-        <div class="md:col-span-3 lg:col-span-2"></div>
-
-        <div class="md:col-span-4 lg:col-span-2">
-            <h4 class="font-bold text-pink uppercase tracking-widest text-sm mb-4">Quick links</h4>
-            <ul class="space-y-2">
-                {{ range site.Menus.footer }}
-                <li><a href="{{ .URL }}" class="text-white/60 hover:text-white transition-colors">{{ .Name }}</a></li>
-                {{ end }}
-                {{/*  <li><a href="#" class="text-white/60 hover:text-white transition-colors">Terms</a></li>
-                <li><a href="#" class="text-white/60 hover:text-white transition-colors">Privacy</a></li>  */}}
-            </ul>
-        </div>
-
-        {{ with site.Params.Socials }}    
-        <div class="md:col-span-12 lg:col-span-2">
-            <h4 class="font-bold text-pink uppercase tracking-widest text-sm mb-4">Connect</h4>
-            <div class="flex flex-wrap gap-3">
-                {{ range .items }}
-                <a href="{{ .url }}" aria-label="{{ .name }}" class="w-10 h-10 rounded-lg bg-white/5 hover:bg-white/10 text-white/60 hover:text-white flex items-center justify-center transition-all duration-300 hover:-translate-y-1">
-                    {{ if .icon }}<i class="{{ .icon }}"></i>{{ else }}<img src="{{ .img }}" alt="{{ .name }} logo" width="28" height="28">{{ end }}
-                </a>
-                {{ end }}                
-            </div>
-        </div>
-        {{ end }}
+{{/* 
+  Synthonyx Footer - Data Block / Spec Sheet Style
+  - 4-column grid with visible borders
+  - Looks like engineering documentation
+  - No centered text, no decorative elements
+  
+  Configurable params (in site hugo.toml):
+  - params.logo: path to logo file
+  - params.logoAlt: alt text for logo
+  - params.logoText: optional text next to logo (e.g., "Group")
+  - params.slogan: tagline text (default in theme hugo.toml)
+  - params.copyright: copyright holder name (default: "Synthonyx Technologies Ltd")
+  - params.contactEmail: contact email
+  - params.address: address/location
+*/}}
+<div class="grid grid-cols-1 md:grid-cols-4 border-b border-white/20">
+  
+  {{/* Column 1: Brand */}}
+  <div class="p-8 border-b md:border-b-0 md:border-r border-white/20">
+    <div class="flex items-center mb-6">
+      <img src="{{ with site.Params.logo }}{{ . }}{{ else }}/img/synthonyx-logo-white.png{{ end }}" 
+           alt="{{ with site.Params.logoAlt }}{{ . }}{{ else }}Synthonyx{{ end }}" 
+           class="h-6 w-auto" />
+      {{ with site.Params.logoText }}
+      <span class="ml-3 font-heading font-bold text-sm uppercase tracking-widest text-white">
+        {{ . }}
+      </span>
+      {{ end }}
     </div>
+    <p class="text-gray-500 text-sm font-mono leading-relaxed">
+      {{ with site.Params.slogan }}{{ . }}{{ else }}Sovereign European technology infrastructure. Enterprise-grade solutions built for resilience.{{ end }}
+    </p>
+  </div>
 
-    <div class="mt-12 pt-8 border-t border-white/10 text-center text-white/40">
-        <p>&copy; {{ now.Year }} {{ .Site.Title }}. All rights reserved.</p>
-        {{ with .Site.Params.Footer.greeting | safeHTML }}
-        <p class="text-sm mt-2">{{ . }}</p>
-        {{ end }}
-        <p class="text-sm mt-2">{{ .Site.Params.heroHeader }} {{ .Site.Params.heroSubheader }}</p>
-    </div>
+  {{/* Column 2: Navigation */}}
+  <div class="p-8 border-b md:border-b-0 md:border-r border-white/20">
+    <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-gray-300 mb-6 pb-2 border-b border-white/10">
+      Navigation
+    </h4>
+    <ul class="space-y-3">
+      {{ range site.Menus.main }}
+      <li>
+        <a href="{{ .URL }}" 
+           class="text-gray-400 hover:text-white text-sm font-mono transition-colors flex items-center gap-2">
+          <span class="w-1 h-1 bg-gray-600"></span>
+          {{ .Name }}
+        </a>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+
+  {{/* Column 3: Specifications */}}
+  <div class="p-8 border-b md:border-b-0 md:border-r border-white/20">
+    <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-gray-300 mb-6 pb-2 border-b border-white/10">
+      Specifications
+    </h4>
+    <ul class="space-y-3 text-sm font-mono">
+      <li class="flex justify-between text-gray-500">
+        <span>Status</span>
+        <span class="text-green-400">Operational</span>
+      </li>
+      <li class="flex justify-between text-gray-500">
+        <span>Region</span>
+        <span class="text-gray-400">EU-Sovereign</span>
+      </li>
+      <li class="flex justify-between text-gray-500">
+        <span>Compliance</span>
+        <span class="text-gray-400">GDPR</span>
+      </li>
+      <li class="flex justify-between text-gray-500">
+        <span>Uptime</span>
+        <span class="text-gray-400">99.99%</span>
+      </li>
+    </ul>
+  </div>
+
+  {{/* Column 4: Contact */}}
+  <div class="p-8">
+    <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-gray-300 mb-6 pb-2 border-b border-white/10">
+      Contact
+    </h4>
+    <ul class="space-y-3 text-sm font-mono">
+      <li class="text-gray-400">
+        {{ with site.Params.contactEmail }}{{ . }}{{ else }}contact@synthonyx.group{{ end }}
+      </li>
+      <li class="text-gray-500">
+        {{ with site.Params.address }}{{ . }}{{ else }}European Union{{ end }}
+      </li>
+    </ul>
+  </div>
+</div>
+
+{{/* Copyright Bar - Monospace Spec Style */}}
+<div class="px-8 py-4 flex flex-col md:flex-row justify-between items-center gap-2 bg-dark-bg/50">
+  <p class="text-gray-600 text-xs font-mono">
+    &copy; {{ now.Year }} {{ with site.Params.copyright }}{{ . }}{{ else }}Synthonyx Technologies Ltd{{ end }}. All rights reserved.
+  </p>
+  <p class="text-gray-600 text-xs font-mono uppercase tracking-wider">
+    Revolutionizing Boring / Build {{ now.Format "2006.01.02" }}
+  </p>
 </div>

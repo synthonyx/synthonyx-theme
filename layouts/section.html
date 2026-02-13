@@ -1,19 +1,10 @@
 {{ define "main" }}
 <section class="relative overflow-hidden py-20 md:py-32 bg-light-bg dark:bg-dark-bg text-neutral-900 dark:text-white">
 
-  <!-- Background glow blobs -->
-  <div class="absolute inset-0 z-0 pointer-events-none">
-    <div class="absolute top-0 -left-1/4 w-full h-full bg-gradient-to-br from-primary/20 to-transparent rounded-full filter blur-3xl opacity-40 animate-float-slow"></div>
-    <div class="absolute bottom-0 -right-1/4 w-full h-full bg-gradient-to-tl from-pink/20 to-transparent rounded-full filter blur-3xl opacity-40 animate-float-fast"></div>
-    <div class="absolute top-1/4 left-1/3 w-1/2 h-1/2 bg-gradient-to-br from-magenta/10 to-transparent rounded-full filter blur-3xl opacity-40 animate-float"></div>
-  </div>
+  <div class="absolute inset-0 z-10 pointer-events-none bg-grid-pattern"></div>
 
-  <!-- Grid overlay -->
-  <div class="absolute inset-0 z-10 pointer-events-none" style="background-image: radial-gradient(circle, rgba(0,0,0,0.03) 1px, transparent 1px); background-size: 2rem 2rem;"></div>
-
-  <!-- Main content -->
   <div class="relative z-20 container mx-auto px-6 max-w-4xl animate-fade-in-up">
-    <h1 class="text-4xl md:text-5xl font-black mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary via-pink to-magenta">
+    <h1 class="text-4xl md:text-5xl font-black mb-6 font-heading text-primary">
       {{ .Title }}
     </h1>
 
@@ -21,17 +12,15 @@
       {{ .Content }}
     </div>
 
-    <!-- Child Pages (if any) -->
     {{ if .Pages }}
     <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-3 mt-12">
       {{ range .Pages }}
       <div class="group rounded-2xl p-6 border transition-all duration-300 animate-fade-in-up flex flex-col justify-between h-full
                   bg-white dark:bg-dark-card border-gray-200 dark:border-dark-border hover:border-primary hover:shadow-md hover:shadow-primary/20">
         
-        <!-- Article Content -->
         <div>
-          <h2 class="text-xl font-bold mb-3 text-neutral-900 dark:text-white">
-            <a href="{{ .RelPermalink }}" class="hover:text-pink transition-colors">
+          <h2 class="text-xl font-bold mb-3 text-neutral-900 dark:text-white font-heading">
+            <a href="{{ .RelPermalink }}" class="hover:text-accent transition-colors">
               {{ .LinkTitle }}
             </a>
           </h2>
@@ -44,9 +33,8 @@
           </p>
         </div>
 
-        <!-- Read More Link -->
         <div class="mt-6">
-          <a href="{{ .RelPermalink }}" class="text-pink font-semibold hover:text-magenta transition">
+          <a href="{{ .RelPermalink }}" class="text-accent font-semibold hover:text-action transition">
             Read more →
           </a>
         </div>

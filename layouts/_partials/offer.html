@@ -1,24 +1,34 @@
+{{/* 
+  Synthonyx Services/Offer - Full Width Block
+  - Hard borders, grid layout
+  - Infrastructure aesthetic
+*/}}
 {{ with .Site.Params.services }}
-<section id="offer" class="py-20 md:py-32 bg-white dark:bg-dark-bg border-t border-black/10 dark:border-white/10">
-  <div class="container mx-auto px-6 text-center relative">
-    
-    <!-- Optional blob background -->
-    <div class="absolute -top-20 -left-20 w-40 h-40 bg-primary/10 rounded-full filter blur-2xl dark:opacity-100 opacity-60"></div>
-    <div class="absolute -bottom-20 -right-20 w-40 h-40 bg-pink/10 rounded-full filter blur-2xl dark:opacity-100 opacity-60"></div>
-
-    <div class="relative z-10 max-w-3xl mx-auto animate-fade-in-up">
-      <h2 class="text-4xl md:text-5xl font-black mb-4 bg-clip-text text-transparent bg-gradient-to-br from-primary to-pink dark:from-primary dark:to-pink">
-        {{ .title }}
-      </h2>
-      <p class="text-lg md:text-xl text-black/70 dark:text-white/70 mb-8">
-        {{ .description }}
-      </p>
-      <a href="{{ .linkURL }}"
-         class="inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full font-bold uppercase tracking-wider text-base transition-all duration-300 ease-in-out bg-gradient-to-br from-pink to-magenta text-white shadow-lg shadow-pink/30 hover:shadow-2xl hover:shadow-pink/50 hover:-translate-y-1">
-        {{ .linkText }}
-        <i data-lucide="arrow-right" class="w-5 h-5"></i>
-      </a>
+<section class="border-b border-white/20 bg-dark-card/30">
+  
+  {{/* Section Header */}}
+  <div class="p-8 lg:p-16 border-b border-white/20">
+    <div class="flex items-center gap-3 mb-6">
+      <span class="w-8 h-px bg-white/20"></span>
+      <span class="font-mono text-xs uppercase tracking-widest text-gray-500">Services</span>
     </div>
+    <h2 class="font-heading font-black uppercase tracking-wider text-3xl md:text-4xl text-white">
+      {{ .title }}
+    </h2>
+    <p class="text-gray-400 text-lg mt-4 max-w-2xl">
+      {{ .description }}
+    </p>
+    
+    {{/* CTA */}}
+    {{ with .linkURL }}
+    <a href="{{ . }}"
+       class="inline-flex items-center justify-center gap-3 px-8 py-4 mt-8 
+              font-montserrat font-bold text-xs tracking-[0.2em] uppercase
+              bg-action text-white hover:bg-action/90 transition-all duration-300">
+      {{ $.linkText }}
+      <i data-lucide="arrow-right" class="w-4 h-4"></i>
+    </a>
+    {{ end }}
   </div>
 </section>
 {{ end }}

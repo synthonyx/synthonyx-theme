@@ -1,7 +1,31 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
-  {{ .Content }}
-  {{ range .Pages }}
-    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-  {{ end }}
+<section class="relative overflow-hidden py-20 md:py-32 bg-light-bg dark:bg-dark-bg text-neutral-900 dark:text-white">
+  
+  <div class="absolute inset-0 z-10 pointer-events-none bg-grid-pattern"></div>
+
+  <div class="relative z-20 container mx-auto px-6 max-w-4xl animate-fade-in-up">
+    <h1 class="text-4xl md:text-5xl font-black mb-6 font-heading text-primary">
+      {{ .Title }}
+    </h1>
+
+    <div class="prose prose-neutral dark:prose-invert prose-lg mb-16 max-w-none">
+      {{ .Content }}
+    </div>
+
+    {{ if .Pages }}
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-12">
+      {{ range .Pages }}
+      <a href="{{ .RelPermalink }}" 
+         class="group block p-6 rounded-lg border transition-all duration-300
+                bg-white dark:bg-dark-card border-gray-200 dark:border-dark-border
+                hover:border-primary hover:shadow-md hover:shadow-primary/20">
+        <h2 class="text-lg font-bold text-neutral-900 dark:text-white font-heading group-hover:text-accent transition-colors">
+          {{ .LinkTitle }}
+        </h2>
+      </a>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+</section>
 {{ end }}

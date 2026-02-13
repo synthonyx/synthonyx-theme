@@ -1,0 +1,95 @@
+baseURL = 'https://synthonyx.com/'
+languageCode = 'en-US'
+title = 'Synthonyx Technologies'
+
+# For local development: uses parent directory as theme
+# For production: use 'github.com/synthonyx/synthonyx-theme'
+theme = 'synthonyx-theme'
+themesDir = '../..'
+
+[menus]
+  [[menus.main]]
+    name = 'Sovereign'
+    pageRef = '/sovereign'
+    weight = 10
+
+  [[menus.main]]
+    name = 'BSOS'
+    pageRef = '/bsos'
+    weight = 20
+
+  [[menus.main]]
+    name = 'Services'
+    pageRef = '/services'
+    weight = 30
+
+  [[menus.main]]
+    name = 'Academy'
+    pageRef = '/academy'
+    weight = 40
+
+# Site Parameters
+[params]
+  # Brand Configuration
+  logo = "/img/synthonyx-logo-white.png"
+  logoAlt = "Synthonyx"
+  logoText = "Synthonyx Technologies"  # Optional text next to logo (e.g., "Group", "Labs")
+  
+  # Footer Configuration
+  slogan = "Sovereign European technology infrastructure. Enterprise-grade solutions built for resilience."
+  copyright = "Synthonyx Technologies Ltd"
+  
+  # Contact
+  contactEmail = "hello@synthonyx.com"
+  address = "European Union"
+
+  # Hero Section
+  [params.hero]
+    label = "Infrastructure Platform"
+    header = "Sovereign"
+    subHeader = "Technology"
+    description = "Enterprise-grade infrastructure solutions for organizations requiring European data sovereignty, compliance, and resilience."
+    leftButtonText = "Deploy Now"
+    leftButtonURL = "/contact"
+    rightButtonText = "View Architecture"
+    rightButtonURL = "/architecture"
+
+  # Features Section
+  [params.Features]
+    title = "Platform Capabilities"
+    description = "Built for enterprises demanding reliability, security, and compliance."
+    
+    [[params.Features.items]]
+      icon = "shield-check"
+      title = "Sovereign Security"
+      description = "GDPR-compliant infrastructure with data residency guarantees within European borders."
+      linkText = "Learn More"
+      linkURL = "/security"
+    
+    [[params.Features.items]]
+      icon = "server"
+      title = "High Availability"
+      description = "99.99% uptime SLA with geographically distributed redundancy."
+      linkText = "View SLA"
+      linkURL = "/sla"
+    
+    [[params.Features.items]]
+      icon = "lock"
+      title = "Zero Trust"
+      description = "Military-grade encryption with end-to-end protection for all data in transit and at rest."
+      linkText = "Architecture"
+      linkURL = "/architecture"
+    
+    [[params.Features.items]]
+      icon = "globe"
+      title = "EU-First"
+      description = "All infrastructure, personnel, and operations located exclusively within the European Union."
+      linkText = "Regions"
+      linkURL = "/regions"
+
+  # CTA Section
+  [params.CTA]
+    title = "Ready to Build?"
+    description = "Deploy sovereign infrastructure in minutes. Our team is ready to architect your solution."
+    linkText = "Start Deployment"
+    linkURL = "/contact"

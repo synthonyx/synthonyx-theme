@@ -1,24 +1,22 @@
-baseURL = 'https://example.org/'
-languageCode = 'en-US'
-title = 'My New Hugo Site'
-
-[menus]
-  [[menus.main]]
-    name = 'Home'
-    pageRef = '/'
-    weight = 10
-
-  [[menus.main]]
-    name = 'Posts'
-    pageRef = '/posts'
-    weight = 20
-
-  [[menus.main]]
-    name = 'Tags'
-    pageRef = '/tags'
-    weight = 30
+# Synthonyx Theme Configuration
+# This is a Hugo theme - site-specific config goes in exampleSite/hugo.toml
 
 [module]
   [module.hugoVersion]
-    extended = false
+    extended = true
     min = '0.146.0'
+
+# Theme-level default parameters (can be overridden in site config)
+[params]
+  # Logo configuration
+  logo = "/img/synthonyx-logo-white.png"
+  logoAlt = "Synthonyx"
+  logoText = ""  # Optional text next to logo
+  
+  # Footer configuration
+  slogan = "Sovereign European technology infrastructure. Enterprise-grade solutions built for resilience."
+  copyright = "Synthonyx Technologies Ltd"
+  
+  # Contact defaults
+  contactEmail = "hello@synthonyx.com"
+  address = "European Union"

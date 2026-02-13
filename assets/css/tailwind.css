@@ -4,10 +4,15 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  /* Brand colors */
-  --color-primary: #7F00FF;
-  --color-pink: #FF00CC;
-  --color-magenta: #E700FF;
+  /* Brand Colors - Sovereign Engineering */
+  --color-primary: #4A148C;
+  --color-accent: #006064;
+  --color-action: #FF6F00;
+
+  /* Dark theme */
+  --color-dark-bg: #230036;
+  --color-dark-card: #2C004A;
+  --color-dark-border: #3A2B5A;
 
   /* Light theme */
   --color-light-bg: #FDFDFD;
@@ -15,23 +20,25 @@
   --color-light-border: #DDDDDD;
   --color-text-light: #1A1A1A;
 
-  /* Dark theme */
-  --color-dark-bg: #230036;
-  --color-dark-card: #2C004A;
-  --color-dark-border: #3A2B5A;
+  /* Text */
   --color-text-dark: #F5F5F5;
 
-  /* Common */
+  /* Neutrals - Enterprise */
+  --color-charcoal: #2C2C2C;
+  --color-slate: #455A64;
+  --color-silver: #90A4AE;
   --color-off-white: #F5F5F5;
 
   /* Fonts */
-  --font-sans: 'Inter', 'system-ui', 'sans-serif';
-  --font-mono: 'JetBrains Mono', 'monospace';
+  --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-heading: 'Montserrat', system-ui, sans-serif;
+  --font-montserrat: 'Montserrat', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 }
 
 @layer base {
   html {
-    scroll-padding-top: 6rem; /* adjust based on your fixed header height */
+    scroll-padding-top: 6rem;
   }
   
   body {
@@ -47,23 +54,31 @@
     color: var(--color-text-dark);
   }
 
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+
   h1 {
     color: var(--color-primary);
     font-weight: 800;
   }
 
   h2 {
-    color: var(--color-pink);
+    color: var(--color-primary);
     font-weight: 700;
   }
 
   h3 {
-    color: var(--color-magenta);
+    color: var(--color-charcoal);
     font-weight: 600;
   }
 
+  .dark h3 {
+    color: var(--color-text-dark);
+  }
+
   h4 {
-    color: var(--color-pink);
+    color: var(--color-slate);
     font-weight: 600;
   }
 
@@ -72,13 +87,13 @@
   }
 
   a {
-    color: var(--color-pink);
+    color: var(--color-accent);
     text-decoration: none;
     font-weight: 600;
   }
 
   a:hover {
-    color: var(--color-magenta);
+    color: var(--color-action);
   }
 
   blockquote {
@@ -89,7 +104,7 @@
   }
 
   .dark blockquote {
-    border-left-color: var(--color-magenta);
+    border-left-color: var(--color-accent);
   }
 
   ul li {
@@ -98,18 +113,6 @@
 }
 
 @layer utilities {
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0px) rotate(0deg);
-    }
-    33% {
-      transform: translateY(-25px) rotate(1deg);
-    }
-    66% {
-      transform: translateY(25px) rotate(-1deg);
-    }
-  }
-
   @keyframes fade-in-up {
     from {
       opacity: 0;
@@ -121,20 +124,28 @@
     }
   }
 
-  .animate-float {
-    animation: float 20s ease-in-out infinite;
-  }
-
-  .animate-float-fast {
-    animation: float 15s ease-in-out infinite;
-  }
-
-  .animate-float-slow {
-    animation: float 25s ease-in-out infinite;
-  }
-
   .animate-fade-in-up {
     animation: fade-in-up 1s ease-out forwards;
+  }
+
+  .bg-grid-pattern {
+    background-image: radial-gradient(circle, rgba(0,0,0,0.03) 1px, transparent 1px);
+    background-size: 2rem 2rem;
+  }
+
+  .dark .bg-grid-pattern {
+    background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+  }
+
+  .divider-schematic {
+    border: none;
+    height: 1px;
+    background-color: var(--color-slate);
+    opacity: 0.3;
+  }
+
+  .dark .divider-schematic {
+    background-color: var(--color-silver);
   }
 }
 
@@ -144,13 +155,13 @@
   }
 
   .prose a {
-    color: var(--color-pink);
+    color: var(--color-accent);
     text-decoration: none;
     font-weight: 600;
   }
 
   .prose a:hover {
-    color: var(--color-magenta);
+    color: var(--color-action);
   }
 
   .prose h1 {
@@ -159,17 +170,17 @@
   }
 
   .prose h2 {
-    color: var(--color-pink);
+    color: var(--color-primary);
     font-weight: 700;
   }
 
   .prose h3 {
-    color: var(--color-magenta);
+    color: var(--color-charcoal);
     font-weight: 600;
   }
 
   .prose h4 {
-    color: var(--color-pink);
+    color: var(--color-slate);
     font-weight: 600;
   }
 
@@ -198,11 +209,11 @@
   }
 
   .dark .prose a {
-    color: var(--color-pink);
+    color: var(--color-accent);
   }
 
   .dark .prose a:hover {
-    color: var(--color-magenta);
+    color: var(--color-action);
   }
 
   .dark .prose h1 {
@@ -210,15 +221,15 @@
   }
 
   .dark .prose h2 {
-    color: var(--color-pink);
+    color: var(--color-primary);
   }
 
   .dark .prose h3 {
-    color: var(--color-magenta);
+    color: var(--color-text-dark);
   }
 
   .dark .prose h4 {
-    color: var(--color-pink);
+    color: var(--color-silver);
   }
 
   .dark .prose strong {
@@ -231,6 +242,6 @@
 
   .dark .prose blockquote {
     color: var(--color-text-dark);
-    border-left-color: var(--color-magenta);
+    border-left-color: var(--color-accent);
   }
 }

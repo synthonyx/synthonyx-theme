@@ -4,7 +4,6 @@
   method="POST"
   class="space-y-6 max-w-2xl mx-auto bg-dark-card p-10 rounded-2xl border border-dark-border shadow-md hover:shadow-primary/30 transition-shadow duration-300"
 >
-  <!-- Email -->
   <div>
     <label for="email" class="block text-sm font-semibold text-white mb-2">Your email</label>
     <input
@@ -12,18 +11,17 @@
       name="email"
       id="email"
       required
-      class="w-full px-4 py-3 rounded-lg bg-white text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary"
+      class="w-full px-4 py-3 rounded-lg bg-white text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-accent"
       placeholder="you@example.com"
     />
   </div>
 
-  <!-- Interest / Use case -->
   <div>
     <label for="use_case" class="block text-sm font-semibold text-white mb-2">What are you most interested in?</label>
     <select
       name="use_case"
       id="use_case"
-      class="w-full px-4 py-3 rounded-lg bg-white text-black focus:outline-none focus:ring-2 focus:ring-primary"
+      class="w-full px-4 py-3 rounded-lg bg-white text-black focus:outline-none focus:ring-2 focus:ring-accent"
       required
     >
       <option value="">Select an option</option>
@@ -36,27 +34,24 @@
     </select>
   </div>
 
-  <!-- Optional message -->
   <div>
     <label for="message" class="block text-sm font-semibold text-white mb-2">Anything else you'd like us to know?</label>
     <textarea
       name="message"
       id="message"
       rows="4"
-      class="w-full px-4 py-3 rounded-lg bg-white text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary"
+      class="w-full px-4 py-3 rounded-lg bg-white text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-accent"
       placeholder="Optional message..."
     ></textarea>
   </div>
 
-  <!-- Optional hidden metadata -->
   <input type="hidden" name="_subject" value="New Synthonyx AI waitlist signup">
   <input type="text" name="_gotcha" style="display:none">
 
-  <!-- Submit Button -->
   <div class="text-center">
     <button
       type="submit"
-      class="w-full sm:w-auto px-6 py-3 rounded-full bg-gradient-to-r from-primary via-pink to-magenta text-white font-bold text-sm uppercase tracking-wide hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+      class="w-full sm:w-auto px-6 py-3 rounded-full bg-action text-white font-bold text-sm uppercase tracking-wide hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
     >
       Join the waitlist
     </button>
