@@ -30,6 +30,9 @@ themesDir = '../..'
 
 # Site Parameters
 [params]
+  # Site Type
+  siteType = "operating"
+  
   # Brand Configuration
   logo = "/img/synthonyx-logo-white.png"
   logoAlt = "Synthonyx"
@@ -42,6 +45,9 @@ themesDir = '../..'
   # Contact
   contactEmail = "hello@synthonyx.com"
   address = "European Union"
+  
+  # Forms (Formspree)
+  formspree = "your-form-id"  # Replace with actual Formspree form ID
 
   # Hero Section
   [params.hero]
@@ -56,6 +62,7 @@ themesDir = '../..'
 
   # Features Section
   [params.Features]
+    enable = true
     title = "Platform Capabilities"
     description = "Built for enterprises demanding reliability, security, and compliance."
     
@@ -89,6 +96,7 @@ themesDir = '../..'
 
   # CTA Section
   [params.CTA]
+    enable = true
     title = "Ready to Build?"
     description = "Deploy sovereign infrastructure in minutes. Our team is ready to architect your solution."
     linkText = "Start Deployment"

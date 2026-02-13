@@ -1,47 +1,70 @@
 {{ define "main" }}
-<section class="relative overflow-hidden py-20 md:py-32 bg-light-bg dark:bg-dark-bg text-neutral-900 dark:text-white">
-
-  <div class="absolute inset-0 z-10 pointer-events-none bg-grid-pattern"></div>
-
-  <div class="relative z-20 container mx-auto px-6 max-w-4xl animate-fade-in-up">
-    <h1 class="text-4xl md:text-5xl font-black mb-6 font-heading text-primary">
+{{/* 
+  Section Layout - Visible Engineering Style
+  - Grid layout with hard borders
+  - For listing pages (posts, products, etc.)
+*/}}
+<section class="border-b border-white/20">
+  
+  {{/* Section Header */}}
+  <div class="p-8 lg:p-16 border-b border-white/20">
+    <div class="flex items-center gap-3 mb-6">
+      <span class="w-8 h-px bg-white/20"></span>
+      <span class="font-mono text-xs uppercase tracking-widest text-gray-500">{{ .Section | title }}</span>
+    </div>
+    <h1 class="font-heading font-black uppercase tracking-wider text-3xl md:text-4xl text-white">
       {{ .Title }}
     </h1>
-
-    <div class="prose prose-neutral dark:prose-invert prose-lg mb-16 max-w-none">
-      {{ .Content }}
-    </div>
-
-    {{ if .Pages }}
-    <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-3 mt-12">
-      {{ range .Pages }}
-      <div class="group rounded-2xl p-6 border transition-all duration-300 animate-fade-in-up flex flex-col justify-between h-full
-                  bg-white dark:bg-dark-card border-gray-200 dark:border-dark-border hover:border-primary hover:shadow-md hover:shadow-primary/20">
-        
-        <div>
-          <h2 class="text-xl font-bold mb-3 text-neutral-900 dark:text-white font-heading">
-            <a href="{{ .RelPermalink }}" class="hover:text-accent transition-colors">
-              {{ .LinkTitle }}
-            </a>
-          </h2>
-          <p class="text-sm leading-relaxed line-clamp-5 text-neutral-700 dark:text-white/70">
-            {{ if .Params.summary }}
-              {{ .Params.summary }}
-            {{ else }}
-              {{ .Plain | truncate 200 }}
-            {{ end }}
-          </p>
-        </div>
-
-        <div class="mt-6">
-          <a href="{{ .RelPermalink }}" class="text-accent font-semibold hover:text-action transition">
-            Read more →
-          </a>
-        </div>
-      </div>
-      {{ end }}
-    </div>
+    {{ with .Description }}
+    <p class="text-gray-400 text-lg mt-4 max-w-2xl">
+      {{ . }}
+    </p>
     {{ end }}
   </div>
+
+  {{/* Section Content */}}
+  {{ with .Content }}
+  <div class="p-8 lg:p-16 border-b border-white/20 prose prose-invert max-w-none">
+    {{ . }}
+  </div>
+  {{ end }}
+
+  {{/* Pages Grid */}}
+  {{ if .Pages }}
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    {{ range .Pages }}
+    <article class="p-8 border-b md:border-r border-white/20 hover:bg-white/5 transition-colors duration-300 flex flex-col">
+      
+      {{/* Page Title */}}
+      <h2 class="font-heading font-bold uppercase tracking-wider text-lg text-white mb-4">
+        <a href="{{ .RelPermalink }}" class="hover:text-gray-300 transition-colors">
+          {{ .LinkTitle }}
+        </a>
+      </h2>
+      
+      {{/* Meta */}}
+      {{ with .Date }}
+      <time class="font-mono text-xs text-gray-500 mb-4">{{ .Format "January 2, 2006" }}</time>
+      {{ end }}
+      
+      {{/* Summary */}}
+      <p class="text-gray-400 text-sm leading-relaxed flex-grow mb-6">
+        {{ if .Params.summary }}
+          {{ .Params.summary }}
+        {{ else }}
+          {{ .Plain | truncate 150 }}
+        {{ end }}
+      </p>
+      
+      {{/* Link */}}
+      <a href="{{ .RelPermalink }}" 
+         class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-gray-300 hover:text-white transition-colors">
+        Read More
+        <i data-lucide="arrow-right" class="w-3 h-3"></i>
+      </a>
+    </article>
+    {{ end }}
+  </div>
+  {{ end }}
 </section>
 {{ end }}

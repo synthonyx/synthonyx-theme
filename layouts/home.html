@@ -1,17 +1,39 @@
 {{ define "main" }}
-<!-- Hero Section -->
+{{/* 
+  Home Page Layout - Supports both operating and holding site types
+  - Sections are rendered based on params in hugo.toml
+  - Use params.showSectionName = true/false to control visibility
+*/}}
+
+{{/* Hero Section - Always shown */}}
 {{ partial "hero.html" . }}
 
-<!-- Features Section -->
-{{ partial "features.html" . }}
+{{/* Features Section */}}
+{{ with site.Params.Features }}
+{{ if .enable | default true }}
+{{ partial "features.html" $ }}
+{{ end }}
+{{ end }}
 
-<!-- Offer Section -->
-{{ partial "offer.html" . }}
+{{/* Offer/Services Section */}}
+{{ with site.Params.services }}
+{{ if .enable | default true }}
+{{ partial "offer.html" $ }}
+{{ end }}
+{{ end }}
 
-<!-- Clients Section -->
-{{ partial "clients.html" . }}
+{{/* Clients Section */}}
+{{ with site.Params.clients }}
+{{ if .enable | default false }}
+{{ partial "clients.html" $ }}
+{{ end }}
+{{ end }}
 
-<!-- CTA Section -->
-{{ partial "cta.html" . }}
+{{/* CTA Section */}}
+{{ with site.Params.CTA }}
+{{ if .enable | default true }}
+{{ partial "cta.html" $ }}
+{{ end }}
+{{ end }}
 
 {{ end }}

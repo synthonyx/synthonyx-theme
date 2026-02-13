@@ -1,0 +1,98 @@
+baseURL = 'https://synthonyx.group/'
+languageCode = 'en-US'
+title = 'Synthonyx Group'
+
+# For local development: uses parent directory as theme
+# For production: use 'github.com/synthonyx/synthonyx-theme'
+theme = 'synthonyx-theme'
+themesDir = '../..'
+
+[menus]
+  [[menus.main]]
+    name = 'Portfolio'
+    pageRef = '/portfolio'
+    weight = 10
+
+  [[menus.main]]
+    name = 'Governance'
+    pageRef = '/governance'
+    weight = 20
+
+  [[menus.main]]
+    name = 'Contact'
+    pageRef = '/contact'
+    weight = 30
+
+# Site Parameters
+[params]
+  # Site Type - determines which partials to render
+  siteType = "holding"
+  
+  # Brand Configuration
+  logo = "/img/synthonyx-logo-white.png"
+  logoAlt = "Synthonyx Group"
+  logoText = "Group"
+  
+  # Footer Configuration
+  slogan = "Sovereign European technology holding. Building the infrastructure for tomorrow's digital sovereignty."
+  copyright = "Synthonyx Group Ltd"
+  
+  # Contact
+  contactEmail = "investors@synthonyx.group"
+  address = "European Union"
+  
+  # Forms (Formspree)
+  formspree = "your-form-id"  # Replace with actual Formspree form ID
+
+  # Hero Section - Holding company style (minimal, investor-focused)
+  [params.hero]
+    label = "Holding Company"
+    header = "Synthonyx"
+    subHeader = "Group"
+    description = "A sovereign European technology holding company building secure, compliant, and resilient infrastructure for the digital age."
+    leftButtonText = "View Portfolio"
+    leftButtonURL = "/portfolio"
+    rightButtonText = "Investor Relations"
+    rightButtonURL = "/governance"
+
+  # Features Section - Company highlights
+  [params.Features]
+    enable = true
+    title = "Portfolio Companies"
+    description = "Operating companies building sovereign European technology solutions."
+    
+    [[params.Features.items]]
+      icon = "building"
+      title = "Synthonyx Technologies"
+      description = "Enterprise-grade infrastructure platform for organizations requiring European data sovereignty and compliance."
+      linkText = "View Company"
+      linkURL = "https://synthonyx.com"
+    
+    [[params.Features.items]]
+      icon = "cpu"
+      title = "BSOS"
+      description = "Business-critical operating systems and solutions for enterprise digital transformation."
+      linkText = "View Company"
+      linkURL = "https://bsos.io"
+    
+    [[params.Features.items]]
+      icon = "graduation-cap"
+      title = "Synthonyx Academy"
+      description = "Training and certification programs for sovereign technology professionals."
+      linkText = "Learn More"
+      linkURL = "/academy"
+    
+    [[params.Features.items]]
+      icon = "shield"
+      title = "Sovereign"
+      description = "Secure, compliant cloud infrastructure designed for European data residency requirements."
+      linkText = "Learn More"
+      linkURL = "https://synthonyx.com/sovereign"
+
+  # CTA Section
+  [params.CTA]
+    enable = true
+    title = "Partner With Us"
+    description = "Join our mission to build sovereign European technology infrastructure."
+    linkText = "Contact Us"
+    linkURL = "/contact"

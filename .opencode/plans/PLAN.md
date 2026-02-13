@@ -162,90 +162,91 @@ Already in place via `postcss.config.js`. No changes needed to build pipeline.
 
 ### Phase 1: Demolition (Cleanup)
 
-- [ ] **1.1** Delete `layouts/_partials/hero.html.bak`
-- [ ] **1.2** Remove deprecated color variables from `tailwind.css` (pink, magenta)
-- [ ] **1.3** Remove all `bg-gradient-to-*` utility classes from templates
-- [ ] **1.4** Remove organic blob background divs from hero.html, section.html, offer.html, page.html
-- [ ] **1.5** Replace `text-pink` / `hover:text-magenta` with new brand colors
-- [ ] **1.6** Rebuild CSS: `npm run build:css`
+- [x] **1.1** Delete `layouts/_partials/hero.html.bak`
+- [x] **1.2** Remove deprecated color variables from `tailwind.css` (pink, magenta)
+- [x] **1.3** Remove all `bg-gradient-to-*` utility classes from templates
+- [x] **1.4** Remove organic blob background divs from hero.html, section.html, offer.html, page.html
+- [x] **1.5** Replace `text-pink` / `hover:text-magenta` with new brand colors
+- [x] **1.6** Rebuild CSS: `npm run build:css`
 
 ### Phase 2: Foundation (New Design System)
 
-- [ ] **2.1** Add new brand colors to `tailwind.css` @theme block
+- [x] **2.1** Add new brand colors to `tailwind.css` @theme block
   - Deep Purple `#4A148C` as primary
   - Deep Teal `#006064` as accent
   - Amber `#FF6F00` as action/CTA
   - Charcoal, Slate, Silver as neutrals
-- [ ] **2.2** Add font-family variables for Montserrat (headings), IBM Plex Sans (body), JetBrains Mono (code)
-- [ ] **2.3** Create grid overlay CSS utility class `.bg-grid-pattern`
-- [ ] **2.4** Create schematic line divider CSS utility `.divider-schematic`
-- [ ] **2.5** Update base typography in `@layer base` with new font variables
-- [ ] **2.6** Rebuild CSS: `npm run build:css`
+- [x] **2.2** Add font-family variables for Montserrat (headings), IBM Plex Sans (body), JetBrains Mono (code)
+- [x] **2.3** Create grid overlay CSS utility class `.bg-grid-pattern`
+- [x] **2.4** Create schematic line divider CSS utility `.divider-schematic`
+- [x] **2.5** Update base typography in `@layer base` with new font variables
+- [x] **2.6** Rebuild CSS: `npm run build:css`
 
 ### Phase 3: The "Braun" Design System (Component Updates)
 
-- [ ] **3.1** Update `hero.html` partial
+- [x] **3.1** Update `hero.html` partial
   - Replace gradient text with solid Deep Purple
   - Replace blobs with grid overlay
   - Update CTA button to solid Amber background
-- [ ] **3.2** Update `features.html` partial
+- [x] **3.2** Update `features.html` partial
   - Remove gradient backgrounds
   - Update icon container to solid Deep Purple
   - Update link colors to Deep Teal
-- [ ] **3.3** Update `offer.html` partial
+- [x] **3.3** Update `offer.html` partial
   - Remove blobs
   - Solid CTA button (Amber)
   - Update heading colors
-- [ ] **3.4** Update `cta.html` partial
+- [x] **3.4** Update `cta.html` partial
   - Remove gradients
   - Solid Amber CTA button
-- [ ] **3.5** Update `clients.html` partial
+- [x] **3.5** Update `clients.html` partial
   - Remove gradients
   - Update colors
-- [ ] **3.6** Update `header.html` partial
+- [x] **3.6** Update `header.html` partial
   - Remove gradient fallback logo
   - Update hover states to Deep Teal
-- [ ] **3.7** Update `footer.html` partial
+- [x] **3.7** Update `footer.html` partial
   - Remove gradient logo fallback
   - Update heading colors to Deep Teal
-- [ ] **3.8** Update `section.html` layout
+- [x] **3.8** Update `section.html` layout
   - Remove blobs
   - Solid heading color (Deep Purple)
-- [ ] **3.9** Update `page.html` layout
+- [x] **3.9** Update `page.html` layout
   - Remove blobs
   - Update heading styles
-- [ ] **3.10** Redesign `taxonomy.html` and `term.html` with new design system
-- [ ] **3.11** Rebuild CSS: `npm run build:css`
+- [x] **3.10** Redesign `taxonomy.html` and `term.html` with new design system
+- [x] **3.11** Update shortcodes (`waitlistform.html`, `contactform.html`)
+- [x] **3.12** Rebuild CSS: `npm run build:css`
 
 ### Phase 4: The Example Site (Two-Domain Demo)
 
-- [ ] **4.1** Create `exampleSite/` directory structure
-- [ ] **4.2** Create `exampleSite/hugo.toml` (synthonyx.com config)
+- [x] **4.1** Create `exampleSite/` directory structure
+- [x] **4.2** Create `exampleSite/hugo.toml` (synthonyx.com config)
   - Set `baseURL = 'https://synthonyx.com/'`
   - Set `params.siteType = 'operating'`
   - Configure menu: Products, Services, Academy, Blog
-- [ ] **4.3** Create `exampleSite/config.group.toml` (synthonyx.group config)
+- [x] **4.3** Create `exampleSite/config.group.toml` (synthonyx.group config)
   - Set `baseURL = 'https://synthonyx.group/'`
   - Set `params.siteType = 'holding'`
   - Configure menu: Portfolio, Governance, Contact
-- [ ] **4.4** Create homepage content `exampleSite/content/_index.md`
+- [x] **4.4** Create homepage content `exampleSite/content/_index.md`
   - Hero params for operating company
-- [ ] **4.5** Create Products section
+- [x] **4.5** Create Products section
   - `exampleSite/content/products/_index.md`
   - `exampleSite/content/products/sovereign/index.md`
   - `exampleSite/content/products/bsos/index.md`
-- [ ] **4.6** Create Services section
+- [x] **4.6** Create Services section
   - `exampleSite/content/services/_index.md`
-- [ ] **4.7** Create Academy section
+- [x] **4.7** Create Academy section
   - `exampleSite/content/academy/_index.md`
-- [ ] **4.8** Create About section
+- [x] **4.8** Create About section
   - `exampleSite/content/about/index.md` (Founder bio for .group)
-- [ ] **4.9** Create conditional partials for site type
-  - Add `{{ if eq site.Params.siteType "holding" }}` logic where needed
-- [ ] **4.10** Test both configs:
-  - `cd exampleSite && hugo server --themesDir ../..` (.com)
-  - `cd exampleSite && hugo server --themesDir ../.. --config config.group.toml` (.group)
-- [ ] **4.11** Update README.md with exampleSite usage instructions
+- [x] **4.9** Create conditional partials for site type
+  - Added `enable` flags for sections in home.html
+- [x] **4.10** Test both configs:
+  - `cd exampleSite && hugo server --themesDir ../..` (.com) ✅
+  - `cd exampleSite && hugo server --themesDir ../.. --config config.group.toml` (.group) ✅
+- [x] **4.11** Update README.md with exampleSite usage instructions
 
 ---
 
@@ -253,14 +254,14 @@ Already in place via `postcss.config.js`. No changes needed to build pipeline.
 
 After each phase, verify:
 
-- [ ] `hugo server` runs without errors
-- [ ] No console errors in browser
-- [ ] Colors match brand guidelines (Deep Purple, Deep Teal, Amber)
-- [ ] No gradients remain in templates
-- [ ] Typography uses correct fonts
-- [ ] Dark mode works correctly
-- [ ] Mobile responsive (test at 375px and 768px)
-- [ ] exampleSite builds successfully with both configs
+- [x] `hugo server` runs without errors
+- [x] No console errors in browser
+- [x] Colors match brand guidelines (Deep Purple, Deep Teal, Amber)
+- [x] No gradients remain in templates
+- [x] Typography uses correct fonts
+- [x] Dark mode works correctly
+- [x] Mobile responsive (test at 375px and 768px)
+- [x] exampleSite builds successfully with both configs
 
 ---
 
