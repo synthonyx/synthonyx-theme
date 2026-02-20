@@ -39,6 +39,72 @@
         lucide.createIcons();
       }
 
+      // Hero Carousel
+      const carouselInterval = {{ with site.Params.hero.carouselInterval }}{{ . }}{{ else }}5000{{ end }};
+      const slides = document.querySelectorAll('.hero-slide');
+      const mediaSlides = document.querySelectorAll('.hero-media-slide');
+      const indicators = document.querySelectorAll('.hero-indicator');
+      let currentSlide = 0;
+      let carouselTimer = null;
+
+      function showSlide(index) {
+        if (slides.length === 0) return;
+        
+        slides.forEach((slide, i) => {
+          if (i === index) {
+            slide.style.opacity = '1';
+            slide.style.position = 'relative';
+            slide.classList.remove('pointer-events-none');
+          } else {
+            slide.style.opacity = '0';
+            slide.style.position = 'absolute';
+            slide.classList.add('pointer-events-none');
+          }
+        });
+        
+        mediaSlides.forEach((slide, i) => {
+          slide.style.opacity = i === index ? '1' : '0';
+        });
+        
+        indicators.forEach((indicator, i) => {
+          indicator.classList.toggle('bg-white', i === index);
+          indicator.classList.toggle('bg-white/30', i !== index);
+        });
+        
+        currentSlide = index;
+      }
+
+      function nextSlide() {
+        if (slides.length === 0) return;
+        showSlide((currentSlide + 1) % slides.length);
+      }
+
+      function startCarousel() {
+        if (slides.length <= 1) return;
+        carouselTimer = setInterval(nextSlide, carouselInterval);
+      }
+
+      function stopCarousel() {
+        if (carouselTimer) {
+          clearInterval(carouselTimer);
+          carouselTimer = null;
+        }
+      }
+
+      // Indicator clicks
+      indicators.forEach((indicator, i) => {
+        indicator.addEventListener('click', () => {
+          stopCarousel();
+          showSlide(i);
+          startCarousel();
+        });
+      });
+
+      // Start carousel
+      if (slides.length > 1) {
+        startCarousel();
+      }
+
       // Mobile menu toggle
       const toggleBtn = document.getElementById('mobileMenuToggle');
       const mobileMenu = document.getElementById('mobileMenu');
@@ -50,7 +116,9 @@
           if (icon) {
             const isOpen = !mobileMenu.classList.contains('hidden');
             icon.setAttribute('data-lucide', isOpen ? 'x' : 'menu');
-            lucide.createIcons();
+            if (typeof lucide !== 'undefined') {
+              lucide.createIcons();
+            }
           }
         });
       }

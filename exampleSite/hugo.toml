@@ -9,23 +9,23 @@ themesDir = '../..'
 
 [menus]
   [[menus.main]]
-    name = 'Sovereign'
-    pageRef = '/sovereign'
+    name = 'Software'
+    pageRef = '/products'
     weight = 10
-
-  [[menus.main]]
-    name = 'BSOS'
-    pageRef = '/bsos'
-    weight = 20
 
   [[menus.main]]
     name = 'Services'
     pageRef = '/services'
+    weight = 20
+
+  [[menus.main]]
+    name = 'Company'
+    pageRef = '/about'
     weight = 30
 
   [[menus.main]]
-    name = 'Academy'
-    pageRef = '/academy'
+    name = 'Thoughts'
+    pageRef = '/posts'
     weight = 40
 
 # Site Parameters
@@ -36,7 +36,7 @@ themesDir = '../..'
   # Brand Configuration
   logo = "/img/synthonyx-logo-white.png"
   logoAlt = "Synthonyx"
-  logoText = "Synthonyx Technologies"  # Optional text next to logo (e.g., "Group", "Labs")
+  logoText = "Synthonyx Technologies"
   
   # Footer Configuration
   slogan = "Sovereign European technology infrastructure. Enterprise-grade solutions built for resilience."
@@ -47,18 +47,49 @@ themesDir = '../..'
   address = "European Union"
   
   # Forms (Formspree)
-  formspree = "your-form-id"  # Replace with actual Formspree form ID
+  formspree = "your-form-id"
 
-  # Hero Section
+  # Social Media Links
+  [params.social]
+    linkedin = "https://linkedin.com/company/synthonyx"
+    bluesky = "https://bsky.app/profile/synthonyx"
+    threads = "https://threads.net/@synthonyx"
+    x = "https://x.com/synthonyx"
+    instagram = "https://instagram.com/synthonyx"
+    tiktok = "https://tiktok.com/@synthonyx"
+    youtube = "https://youtube.com/@synthonyx"
+
+  # Hero Carousel Configuration
   [params.hero]
-    label = "Infrastructure Platform"
-    header = "Sovereign"
-    subHeader = "Technology"
-    description = "Enterprise-grade infrastructure solutions for organizations requiring European data sovereignty, compliance, and resilience."
-    leftButtonText = "Deploy Now"
-    leftButtonURL = "/contact"
-    rightButtonText = "View Architecture"
-    rightButtonURL = "/architecture"
+    carouselInterval = 5000  # milliseconds between slides
+    
+    [[params.hero.slides]]
+      label = "Compliance Platform"
+      header = "Sovereign"
+      subHeader = "Technology"
+      description = "Automated compliance and data sovereignty for European enterprises requiring GDPR adherence and data residency guarantees."
+      buttonText = "Explore Sovereign"
+      buttonURL = "/products/sovereign"
+      # Optional media (uncomment to enable):
+      # mediaType = "image"  # "image" or "video"
+      # mediaSrc = "/img/sovereign-hero.jpg"
+      # mediaAlt = "Sovereign Platform Dashboard"
+      
+    [[params.hero.slides]]
+      label = "Enterprise Resource Planning"
+      header = "BSOS"
+      subHeader = "Platform"
+      description = "Next-generation ERP and operating systems for enterprises undergoing digital transformation with security-first architecture."
+      buttonText = "Explore BSOS"
+      buttonURL = "/products/bsos"
+      
+    [[params.hero.slides]]
+      label = "Professional Services"
+      header = "Engineering"
+      subHeader = "Expertise"
+      description = "DORA consulting, custom development, managed services, and training programs delivered by certified sovereign technology experts."
+      buttonText = "View Services"
+      buttonURL = "/services"
 
   # Features Section
   [params.Features]
@@ -71,7 +102,7 @@ themesDir = '../..'
       title = "Sovereign Security"
       description = "GDPR-compliant infrastructure with data residency guarantees within European borders."
       linkText = "Learn More"
-      linkURL = "/security"
+      linkURL = "/products/sovereign"
     
     [[params.Features.items]]
       icon = "server"
@@ -83,7 +114,7 @@ themesDir = '../..'
     [[params.Features.items]]
       icon = "lock"
       title = "Zero Trust"
-      description = "Military-grade encryption with end-to-end protection for all data in transit and at rest."
+      description = "Military-grade encryption with end-to-end protection."
       linkText = "Architecture"
       linkURL = "/architecture"
     

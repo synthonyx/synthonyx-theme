@@ -25,7 +25,7 @@ themesDir = '../..'
 
 # Site Parameters
 [params]
-  # Site Type - determines which partials to render
+  # Site Type
   siteType = "holding"
   
   # Brand Configuration
@@ -42,20 +42,47 @@ themesDir = '../..'
   address = "European Union"
   
   # Forms (Formspree)
-  formspree = "your-form-id"  # Replace with actual Formspree form ID
+  formspree = "your-form-id"
 
-  # Hero Section - Holding company style (minimal, investor-focused)
+  # Social Media Links
+  [params.social]
+    linkedin = "https://linkedin.com/company/synthonyx"
+    bluesky = "https://bsky.app/profile/synthonyx"
+    threads = "https://threads.net/@synthonyx"
+    x = "https://x.com/synthonyx"
+    instagram = "https://instagram.com/synthonyx"
+    tiktok = "https://tiktok.com/@synthonyx"
+    youtube = "https://youtube.com/@synthonyx"
+
+  # Hero Carousel Configuration
   [params.hero]
-    label = "Holding Company"
-    header = "Synthonyx"
-    subHeader = "Group"
-    description = "A sovereign European technology holding company building secure, compliant, and resilient infrastructure for the digital age."
-    leftButtonText = "View Portfolio"
-    leftButtonURL = "/portfolio"
-    rightButtonText = "Investor Relations"
-    rightButtonURL = "/governance"
+    carouselInterval = 5000  # milliseconds between slides
+    
+    [[params.hero.slides]]
+      label = "Holding Company"
+      header = "Synthonyx"
+      subHeader = "Group"
+      description = "A sovereign European technology holding company building secure, compliant, and resilient infrastructure for the digital age."
+      buttonText = "View Portfolio"
+      buttonURL = "/portfolio"
+      
+    [[params.hero.slides]]
+      label = "Investment Focus"
+      header = "Sovereign"
+      subHeader = "Technology"
+      description = "Strategic investments in European technology companies focused on data sovereignty, security, and digital independence."
+      buttonText = "Investor Relations"
+      buttonURL = "/governance"
+      
+    [[params.hero.slides]]
+      label = "Portfolio Companies"
+      header = "Operating"
+      subHeader = "Companies"
+      description = "Synthonyx Technologies, BSOS, and Academy — building the future of sovereign European technology infrastructure."
+      buttonText = "Learn More"
+      buttonURL = "/portfolio"
 
-  # Features Section - Company highlights
+  # Features Section - Portfolio Companies
   [params.Features]
     enable = true
     title = "Portfolio Companies"
@@ -64,14 +91,14 @@ themesDir = '../..'
     [[params.Features.items]]
       icon = "building"
       title = "Synthonyx Technologies"
-      description = "Enterprise-grade infrastructure platform for organizations requiring European data sovereignty and compliance."
+      description = "Enterprise-grade infrastructure platform for European data sovereignty."
       linkText = "View Company"
       linkURL = "https://synthonyx.com"
     
     [[params.Features.items]]
       icon = "cpu"
       title = "BSOS"
-      description = "Business-critical operating systems and solutions for enterprise digital transformation."
+      description = "Business-critical operating systems for enterprise digital transformation."
       linkText = "View Company"
       linkURL = "https://bsos.io"
     
@@ -84,8 +111,8 @@ themesDir = '../..'
     
     [[params.Features.items]]
       icon = "shield"
-      title = "Sovereign"
-      description = "Secure, compliant cloud infrastructure designed for European data residency requirements."
+      title = "Sovereign Cloud"
+      description = "Secure, compliant cloud infrastructure for European data residency."
       linkText = "Learn More"
       linkURL = "https://synthonyx.com/sovereign"
 
