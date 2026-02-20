@@ -1,6 +1,9 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+/* Scan Hugo layouts for dynamically generated Tailwind classes */
+@source "../layouts/**/*.html";
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
