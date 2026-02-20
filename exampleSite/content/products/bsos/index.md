@@ -4,6 +4,14 @@ description = "Business-critical operating systems for enterprise digital transf
 draft = false
 +++
 
+{{< media-block 
+    src="/img/software.png"
+    alt="BSOS"
+    title="BSOS"
+    subtitle="Business Operating System"
+    tagline="New Generation ERP"
+>}}
+
 ## BSOS Platform
 
 BSOS (Business Operating System) provides enterprise-grade operating systems and solutions for organizations undergoing digital transformation.

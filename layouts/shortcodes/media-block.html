@@ -1,0 +1,75 @@
+{{/* 
+  Media Block Shortcode - Centered hero-style image+text component
+  Follows Synthonyx brand guidelines: Deep Purple, visible engineering aesthetic
+  
+  Usage:
+    {{< media-block 
+        src="/img/software.png"
+        alt="BSOS"
+        title="BSOS"
+        subtitle="Business Operating System"
+        tagline="New Generation ERP"
+    >}}
+  
+  Parameters:
+    src        - Image path (required)
+    alt        - Image alt text (required for accessibility)
+    title      - Main title text
+    subtitle   - Secondary text (styled in accent color)
+    tagline    - Tertiary text
+    shape      - Image shape: "circle" (default), "square", "none"
+    class      - Additional CSS classes for the container
+*/}}
+
+{{- $src := .Get "src" -}}
+{{- $alt := .Get "alt" | default "Image" -}}
+{{- $title := .Get "title" -}}
+{{- $subtitle := .Get "subtitle" -}}
+{{- $tagline := .Get "tagline" -}}
+{{- $shape := .Get "shape" | default "circle" -}}
+{{- $class := .Get "class" | default "" -}}
+
+{{/* Determine image shape classes */}}
+{{- $shapeClasses := "" -}}
+{{- if eq $shape "circle" -}}
+  {{- $shapeClasses = "rounded-full" -}}
+{{- else if eq $shape "square" -}}
+  {{- $shapeClasses = "rounded-lg" -}}
+{{- else -}}
+  {{- $shapeClasses = "" -}}
+{{- end -}}
+
+<div class="not-prose flex flex-col items-center text-center mb-10 max-w-screen-sm mx-auto {{ $class }}">
+  
+  {{/* Image */}}
+  {{ with $src }}
+  <img 
+    src="{{ . }}" 
+    alt="{{ $alt }}"
+    class="w-40 h-40 object-cover {{ $shapeClasses }} shadow-lg mb-6 border border-white/10"
+    loading="lazy"
+  />
+  {{ end }}
+
+  {{/* Text */}}
+  <div class="leading-tight">
+    {{ with $title }}
+    <h2 class="text-2xl font-heading font-bold text-white uppercase tracking-wider">
+      {{ . }}
+    </h2>
+    {{ end }}
+    
+    {{ with $subtitle }}
+    <p class="text-lg font-medium text-accent mb-1">
+      {{ . }}
+    </p>
+    {{ end }}
+    
+    {{ with $tagline }}
+    <p class="text-gray-400 font-mono text-sm uppercase tracking-widest">
+      {{ . }}
+    </p>
+    {{ end }}
+  </div>
+
+</div>

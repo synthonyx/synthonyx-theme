@@ -3,6 +3,16 @@
   - Brand, Navigation, Contact columns
   - Social media icons row
   - Copyright bar
+  
+  Menu Configuration (in site hugo.toml):
+  - [[menus.footer]]: Optional footer-specific menu
+  - Falls back to [[menus.main]] if no footer menu defined
+  
+  Example:
+    [[menus.footer]]
+      name = 'Privacy'
+      pageRef = '/privacy'
+      weight = 10
 */}}
 <div class="grid grid-cols-1 md:grid-cols-3 border-b border-white/20">
   
@@ -29,7 +39,7 @@
       Navigation
     </h4>
     <ul class="space-y-3">
-      {{ range site.Menus.main }}
+      {{ range (or site.Menus.footer site.Menus.main) }}
       <li>
         <a href="{{ .URL }}" 
            class="text-gray-400 hover:text-white text-sm font-mono transition-colors flex items-center gap-2">
@@ -111,6 +121,6 @@
     &copy; {{ now.Year }} {{ with site.Params.copyright }}{{ . }}{{ else }}Synthonyx Technologies Ltd{{ end }}. All rights reserved.
   </p>
   <p class="text-gray-600 text-xs font-mono uppercase tracking-wider">
-    Revolutionizing Boring / Build {{ now.Format "2006.01.02" }}
+    Revolutionizing Boring
   </p>
 </div>

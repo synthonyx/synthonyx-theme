@@ -7,6 +7,12 @@ title = 'Synthonyx Technologies'
 theme = 'synthonyx-theme'
 themesDir = '../..'
 
+# Markdown Configuration
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true  # Allow raw HTML in markdown
+
 [menus]
   [[menus.main]]
     name = 'Software'
