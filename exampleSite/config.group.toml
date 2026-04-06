@@ -31,15 +31,19 @@ themesDir = '../..'
   # Brand Configuration
   logo = "/img/synthonyx-logo-white.png"
   logoAlt = "Synthonyx Group"
-  logoText = "Group"
+  logoText = "Synthonyx Group"
   
   # Footer Configuration
   slogan = "Sovereign European technology holding. Building the infrastructure for tomorrow's digital sovereignty."
   copyright = "Synthonyx Group Ltd"
   
   # Contact
-  contactEmail = "investors@synthonyx.group"
+  contactEmail = "hello@synthonyx.group"
   address = "European Union"
+  
+  # Footer group link (disabled for the group site itself)
+  [params.footerGroupLink]
+    enable = true
   
   # Forms (Formspree)
   formspree = "your-form-id"
@@ -65,6 +69,8 @@ themesDir = '../..'
       description = "A sovereign European technology holding company building secure, compliant, and resilient infrastructure for the digital age."
       buttonText = "View Portfolio"
       buttonURL = "/portfolio"
+      mediaType = "icon"
+      icon = "building"
       
     [[params.hero.slides]]
       label = "Investment Focus"
@@ -73,6 +79,8 @@ themesDir = '../..'
       description = "Strategic investments in European technology companies focused on data sovereignty, security, and digital independence."
       buttonText = "Investor Relations"
       buttonURL = "/governance"
+      mediaType = "icon"
+      icon = "target"
       
     [[params.hero.slides]]
       label = "Portfolio Companies"
@@ -81,6 +89,8 @@ themesDir = '../..'
       description = "Synthonyx Technologies, BSOS, and Academy — building the future of sovereign European technology infrastructure."
       buttonText = "Learn More"
       buttonURL = "/portfolio"
+      mediaType = "icon"
+      icon = "layers"
 
   # Features Section - Portfolio Companies
   [params.Features]
