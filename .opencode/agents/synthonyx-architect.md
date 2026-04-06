@@ -1,7 +1,7 @@
 ---
 description: Lead Developer for the Synthonyx web ecosystem. Specialist in Hugo and Tailwind.
 mode: primary
-model: zai-coding-plan/glm-5
+model: zai-coding-plan/glm-5.1
 tools:
   write: true
   edit: true

@@ -115,6 +115,22 @@
 </div>
 {{ end }}
 
+{{/* Footer Group Link */}}
+{{ with site.Params.footerGroupLink }}
+{{ if .enable }}
+<div class="px-8 py-4 border-b border-white/20 flex justify-center bg-dark-bg/50">
+  <p class="text-gray-600 text-xs font-mono">
+    {{ $text := .text | default "Part of the Synthonyx Group" }}
+    {{ $linkText := .linkText | default "Synthonyx Group" }}
+    {{ $url := .url | default "https://synthonyx.group" }}
+    {{ $before := strings.TrimSuffix $linkText $text }}
+    {{ $after := strings.TrimPrefix $linkText (strings.TrimPrefix $before $text) }}
+    {{ $before }}<a href="{{ $url }}" class="text-gray-400 hover:text-white transition-colors" {{ if strings.HasPrefix $url "http" }}target="_blank" rel="noopener noreferrer"{{ end }}>{{ $linkText }}</a>{{ $after }}
+  </p>
+</div>
+{{ end }}
+{{ end }}
+
 {{/* Copyright Bar */}}
 <div class="px-8 py-4 flex flex-col md:flex-row justify-between items-center gap-2 bg-dark-bg/50">
   <p class="text-gray-600 text-xs font-mono">

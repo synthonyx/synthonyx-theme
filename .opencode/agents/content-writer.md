@@ -1,7 +1,7 @@
 ---
 description: Specialist technical writer for Synthonyx content and DORA materials.
 mode: subagent
-model: zai-coding-plan/glm-5
+model: zai-coding-plan/glm-5.1
 tools:
   write: true
   edit: false

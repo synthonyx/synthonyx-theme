@@ -69,7 +69,19 @@
            data-slide="{{ $index }}"
            style="transition: opacity 0.5s ease-in-out; position: absolute; inset: 0;">
         
-        {{ with .mediaSrc }}
+        {{ if eq .mediaType "icon" }}
+        {{/* Icon Display */}}
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:48px_48px]"></div>
+          <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/5"></div>
+          <div class="relative text-center p-16">
+            <i data-lucide="{{ .icon }}" class="text-white/30" style="width: 12rem; height: 12rem;"></i>
+            {{ with .iconText }}
+            <span class="block mt-4 font-mono text-xs uppercase tracking-widest text-white/20">{{ . }}</span>
+            {{ end }}
+          </div>
+        </div>
+        {{ else if .mediaSrc }}
           {{ if eq $.mediaType "video" }}
           {{/* Video */}}
           <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">

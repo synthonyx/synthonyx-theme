@@ -20,3 +20,10 @@
   # Contact defaults
   contactEmail = "hello@synthonyx.com"
   address = "European Union"
+
+  # Footer group link
+  [params.footerGroupLink]
+    enable = false
+    text = "Part of the Synthonyx Group"
+    url = "https://synthonyx.group"
+    linkText = "Synthonyx Group"
