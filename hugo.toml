@@ -18,7 +18,9 @@
   copyright = "Synthonyx Technologies Ltd"
   
   # Contact defaults
-  contactEmail = "hello@synthonyx.com"
+  [params.contact]
+    text = "Contact Us"        # Display text in footer
+    url = "/contact"           # Link target (page path or mailto:)
   address = "European Union"
 
   # Footer group link

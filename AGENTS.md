@@ -194,9 +194,18 @@ All parameters are configured in the site's `hugo.toml`. Theme defaults are in `
 
 ### Contact Information
 ```toml
+[params.contact]
+  text = "Contact Us"         # Display text in footer (e.g. "Get in Touch", "hello@example.com")
+  url = "/contact"            # Link target — page path ("/contact") or email ("mailto:hello@example.com")
+
 [params]
-  contactEmail = "hello@synthonyx.com"
   address = "European Union"
+```
+
+**Legacy (still supported via fallback):**
+```toml
+[params]
+  contactEmail = "hello@synthonyx.com"  # Renders as mailto: link
 ```
 
 ### Hero Section

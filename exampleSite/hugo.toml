@@ -49,7 +49,9 @@ themesDir = '../..'
   copyright = "Synthonyx Technologies Ltd"
   
   # Contact
-  contactEmail = "hello@synthonyx.com"
+  [params.contact]
+    text = "Contact Us"
+    url = "/contact"
   address = "European Union"
   
   # Footer group link
