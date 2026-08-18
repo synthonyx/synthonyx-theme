@@ -36,6 +36,7 @@ themesDir = '../..'
   # Footer Configuration
   slogan = "Sovereign European technology holding. Building the infrastructure for tomorrow's digital sovereignty."
   copyright = "Synthonyx Group Ltd"
+  trademark = "Synthonyx® is a registered trademark of Synthonyx Group Ltd."
   
   # Contact
   contactEmail = "hello@synthonyx.group"

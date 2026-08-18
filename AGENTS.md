@@ -105,10 +105,10 @@ synthonyx-theme/
 | Dark BG | `#230036` | Dark mode background |
 | Dark Card | `#2C004A` | Card backgrounds |
 | Deep Purple | `#4A148C` | New brand identity |
-| Deep Teal | `#006064` | Trust |
-| Amber | `#FF6F00` | Action/CTA |
+| Amber | `#FF6F00` | Action/CTA/links |
+| Amber Hover | `#E65100` | Link/action hover states |
 
-**Deprecated:** Pink `#FF00CC`, Magenta `#E700FF`
+**Deprecated:** Pink `#FF00CC`, Magenta `#E700FF`, Deep Teal `#006064`
 
 ### Typography
 - Headings: Montserrat (Bold, uppercase for hero)
@@ -190,6 +190,7 @@ All parameters are configured in the site's `hugo.toml`. Theme defaults are in `
 [params]
   slogan = "Sovereign European technology..."  # Tagline in footer
   copyright = "Synthonyx Technologies Ltd"     # Copyright holder
+  trademark = "Synthonyx® is a registered trademark of Synthonyx Group Ltd."  # Shown after copyright in footer
 ```
 
 ### Contact Information

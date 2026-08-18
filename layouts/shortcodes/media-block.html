@@ -22,7 +22,7 @@
     src        - Image path (required)
     alt        - Image alt text (required for accessibility)
     title      - Main title text
-    subtitle   - Secondary text (styled in accent color)
+    subtitle   - Secondary text (styled in action color)
     tagline    - Tertiary text
     shape      - Image shape: "circle" (default), "square", "none"
     width      - Tailwind width class (default: "w-40")
@@ -73,7 +73,7 @@
     {{ end }}
     
     {{ with $subtitle }}
-    <p class="text-lg font-medium text-accent mb-1">
+    <p class="text-lg font-medium text-action mb-1">
       {{ . }}
     </p>
     {{ end }}

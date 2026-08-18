@@ -1,7 +1,7 @@
 # Synthonyx Brand Brief
 
-**Version 1.1.0**
-**Date: January 2026**
+**Version 1.2.0**
+**Date: August 2026**
 
 ---
 
@@ -144,25 +144,22 @@ The logo is sophisticated, geometric, and works in monochrome—suitable for bot
   - Replaces the brighter `#7F00FF` from previous version
   - More serious, less consumer-tech
 - **White/Off-white** `#F5F5F5` (Clean, neutral, professional)
+- **Amber** `#FF6F00` (Energy, action, warmth for CTAs)
 
 **Secondary Colors (Enterprise Grays):**
 - **Charcoal** `#2C2C2C` (Depth, technical weight)
 - **Slate** `#455A64` (Professional, trustworthy)
 - **Silver** `#90A4AE` (Clean, modern)
 
-**Accent Colors:**
-- **Deep Teal** `#006064` (Trust, stability, European waters)
-- **Amber** `#FF6F00` (Energy, action, warmth for CTAs)
-
 **Deprecated:**
 - Pink `#FF00CC` — Removed (too consumer-facing, crypto-adjacent)
 - Magenta `#E700FF` — Removed (same reason)
+- Deep Teal `#006064` — Removed (clashed with the core palette; brand colors are purple, white, and amber only)
 
 **Usage Guidelines:**
 - Deep purple for brand identity, primary CTAs, key messaging
 - Grays for body content, UI backgrounds, professional contexts
-- Teal for trust signals, compliance messaging, European positioning
-- Amber sparingly for high-priority actions
+- Amber sparingly for high-priority actions, links, and hover states
 - No gradients in official materials (solid colors only for enterprise credibility)
 
 ### Typography
@@ -710,5 +707,5 @@ This brand brief serves as our north star. It will evolve as we learn and grow, 
 
 **Document Owner:** Arjan van Eersel
 **Review Cycle:** Quarterly
-**Next Review:** April 2026
+**Next Review:** November 2026
 **Contact:** ave@synthonyx.com

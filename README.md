@@ -110,6 +110,7 @@ All configurable parameters are set in your site's `hugo.toml`:
   # Footer
   slogan = "Your company slogan here"
   copyright = "Your Company Ltd"
+  trademark = "Synthonyx® is a registered trademark of Synthonyx Group Ltd."
   
   # Contact
   contactEmail = "hello@example.com"
@@ -248,8 +249,8 @@ Edit `assets/css/tailwind.css`:
 ```css
 @theme {
   --color-primary: #4A148C;     /* Deep Purple */
-  --color-accent: #006064;      /* Deep Teal */
   --color-action: #FF6F00;      /* Amber */
+  --color-action-hover: #E65100;/* Amber (hover) */
   --color-dark-bg: #230036;     /* Background */
   --color-dark-card: #2C004A;   /* Cards */
 }
@@ -259,4 +260,4 @@ Edit `assets/css/tailwind.css`:
 
 ## License
 
-Copyright (c) 2025, Synthonyx Technologies Ltd. All rights reserved.
+Copyright (c) 2025, Synthonyx Technologies Ltd. All rights reserved. Synthonyx® is a registered trademark of Synthonyx Group Ltd.
